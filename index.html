@@ -529,16 +529,13 @@ function getExplanation(questionNumber) {
 function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
     const resultDiv = document.getElementById(`result${questionNumber}`);
 
-    // Butonları devre dışı bırak
     const buttons = clickedButton.parentElement.querySelectorAll('.button');
     buttons.forEach(button => {
         button.disabled = true; // Butonları devre dışı bırak
     });
 
-    // Seçilen butona 'selected' sınıfını ekle
     clickedButton.classList.add('selected');
 
-    // Cevabı kontrol et
     const correctAnswer = answers[questionNumber];
 
     if (selectedAnswer === '') {
@@ -550,7 +547,6 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
         resultDiv.innerHTML = `<div class="false-result">Fout! Het juiste antwoord is ${correctAnswer}. <br> Verklaring: ${getExplanation(questionNumber)}</div>`;
     }
 
-    // Skoru hesapla ve göster
     displayScore();
 }
 
