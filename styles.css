@@ -1,15 +1,32 @@
 body {
-    font-family: Arial, sans-serif; 
-    line-height: 1.6; 
-    background-color: #f4f4f4; 
-    color: #333; 
-    padding: 20px; 
-    transition: background-color 0.5s; 
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Normal modda arka plan rengi */
+    color: #333; /* Normal modda yazı rengi */
+    padding: 20px;
+    transition: background-color 0.5s, color 0.5s; /* Geçiş efekti */
 }
 
-h1 {
-    text-align: center; 
-    color: #4CAF50; 
+.dark-mode {
+    background-color: #222; /* Koyu modda arka plan rengi */
+    color: #f4f4f4; /* Koyu modda yazı rengi */
+}
+
+.toggle-button {
+    position: absolute; /* Sağ üst köşeye konumlandırma */
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #45a049; /* Hover efekti */
 }
 
 .section {
@@ -17,16 +34,17 @@ h1 {
 }
 
 .question { 
-    background: white; 
+    background: white; /* Normal modda beyaz arka plan */
     border-radius: 8px; 
     padding: 20px; 
     margin: 10px 0; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    transition: box-shadow 0.3s; 
+    transition: background-color 0.5s; /* Koyu mod için geçiş efekti */
 }
 
-.question:hover { 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+.dark-mode .question {
+    background-color: #444; /* Koyu modda koyulaşma */
+    color: #f4f4f4; /* Koyu modda yazı rengi */
 }
 
 .button { 
@@ -50,27 +68,9 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
-.button.selected { 
-    background-color: #d3d3d3; 
-    color: black; 
-    cursor: not-allowed; 
-}
-
 .result { 
     margin-top: 10px; 
     font-weight: bold; 
-}
-
-.score { 
-    text-align: center; 
-    margin-top: 20px; 
-    font-size: 20px; 
-    color: #333; 
-    background-color: #e7f2e7; 
-    border: 1px solid #4CAF50; 
-    padding: 15px; 
-    border-radius: 5px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 .true-result { 
@@ -102,9 +102,4 @@ h1 {
     0%, 100% { transform: translateX(0); } 
     25% { transform: translateX(-10px); } 
     50% { transform: translateX(10px); } 
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #f4f4f4;
 }
