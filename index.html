@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veiligheid en Beveiliging Basis oefeningen toets</title>
     <link rel="stylesheet" href="styles.css"> <!-- CSS dosyasını ekleyin -->
-   <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f4f4f4;
             color: #333;
             padding: 20px;
-            transition: background-color 0.5s, color 0.5s; /* Arka plan rengi geçişi */
+            transition: background-color 0.5s, color 0.5s; /* Geçiş efekti */
         }
 
         .dark-mode {
@@ -21,7 +21,7 @@
         }
 
         .toggle-button {
-            position: absolute; /* Sağ üst köşeye konumlandırmak için */
+            position: absolute; /* Sağ üst köşeye konumlandırma */
             top: 20px;
             right: 20px;
             background-color: #4CAF50;
@@ -35,6 +35,81 @@
 
         .toggle-button:hover {
             background-color: #45a049; /* Hover etkisi */
+        }
+
+        .section {
+            margin-bottom: 30px; 
+        }
+
+        .question { 
+            background: white; /* Normal modda beyaz arka plan */
+            border-radius: 8px; 
+            padding: 20px; 
+            margin: 10px 0; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            transition: background-color 0.5s; /* Koyu mod için geçiş efekti */
+        }
+
+        .dark-mode .question {
+            background-color: #444; /* Koyu modda koyulaşma */
+            color: #f4f4f4;
+        }
+
+        .button { 
+            display: block; 
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 10px 15px; 
+            margin: 5px 0; 
+            border: none; 
+            border-radius: 5px; 
+            text-align: center; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+            text-decoration: none; 
+            font-size: 16px; 
+        }
+
+        .button:hover { 
+            background-color: #45a049; 
+            transform: scale(1.1); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+
+        ..result { 
+            margin-top: 10px; 
+            font-weight: bold; 
+        }
+
+        .true-result { 
+            background-color: #d4edda; 
+            color: #155724; 
+            padding: 10px; 
+            border: 1px solid #c3e6cb; 
+            border-radius: 5px; 
+            margin-bottom: 10px; 
+            animation: fadeIn 0.5s; 
+        }
+
+        .false-result { 
+            background-color: #f8d7da; 
+            color: #721c24; 
+            padding: 10px; 
+            border: 1px solid #f5c6cb; 
+            border-radius: 5px; 
+            margin-bottom: 10px; 
+            animation: shake 0.5s; 
+        }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+
+        @keyframes shake { 
+            0%, 100% { transform: translateX(0); } 
+            25% { transform: translateX(-10px); } 
+            50% { transform: translateX(10px); } 
         }
     </style>
 </head>
