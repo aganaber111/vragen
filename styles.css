@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    transition: background-color 0.5s; /* Arka plan rengi geçişi */
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.question {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s; /* Gölge geçişi */
+}
+
+.question:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Üzerine gelince gölge derinleşiyor */
+}
+
+.button {
+    display: block; /* Block level, alt alta yerleştirir */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0; /* Dikey boşluk */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Geçiş animasyonu */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: scale(1.1); /* Hover üzerinde büyütme */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hover'da gölge ekleniyor */
+}
+
+.button.selected {
+    background-color: #d3d3d3; /* Seçilen cevap için gri arka plan rengi */
+    color: black; /* Metin rengini siyah yap */
+    cursor: not-allowed; /* Fare imlecini değiştirme */
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.score {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    background-color: #e7f2e7;
+    border: 1px solid #4CAF50;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.true-result {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    animation: fadeIn 0.5s; /* Doğru cevap için animasyon */
+}
+
+.false-result {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    animation: shake 0.5s; /* Yanlış cevap için animasyon */
+}
+
+/* Fade in animasyonu */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Shake animasyonu */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+}
