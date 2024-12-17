@@ -4,124 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veiligheid en Beveiliging Basis oefeningen toets</title>
-    <link rel="stylesheet" href="styles.css">
-   <style>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyasını ekleyin -->
+    <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             background-color: #f4f4f4;
             color: #333;
             padding: 20px;
-            transition: background-color 0.5s; /* Arka plan rengi geçişi */
+            transition: background-color 0.5s, color 0.5s; /* Arka plan ve metin rengi geçişi */
         }
 
-        h1 {
-            text-align: center;
-            color: #4CAF50;
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
         }
 
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .question {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s; /* Gölge geçişi */
-        }
-
-        .question:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Üzerine gelince gölge derinleşiyor */
-        }
-
-        .button {
-            display: block; /* Block level, alt alta yerleştirir */
+        .toggle-button {
+            position: absolute; /* Sağ üst köşeye konumlandırmak için */
+            top: 20px;
+            right: 20px;
             background-color: #4CAF50;
             color: white;
-            padding: 10px 15px;
-            margin: 5px 0; /* Dikey boşluk */
             border: none;
-            border-radius: 5px;
-            text-align: center;
+            padding: 10px 15px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Geçiş animasyonu */
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-            transform: scale(1.1); /* Hover üzerinde büyütme */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hover'da gölge ekleniyor */
-        }
-
-        .button.selected {
-            background-color: #d3d3d3; /* Seçilen cevap için gri arka plan rengi */
-            color: black; /* Metin rengini siyah yap */
-            cursor: not-allowed; /* Fare imlecini değiştirme */
-        }
-
-        .result {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .score {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 20px;
-            color: #333;
-            background-color: #e7f2e7;
-            border: 1px solid #4CAF50;
-            padding: 15px;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
         }
 
-        .true-result {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 10px;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            animation: fadeIn 0.5s; /* Doğru cevap için animasyon */
-        }
-
-        .false-result {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 10px;
-            border: 1px solid #f5c6cb;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            animation: shake 0.5s; /* Yanlış cevap için animasyon */
-        }
-
-        /* Fade in animasyonu */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Shake animasyonu */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-10px); }
+        .toggle-button:hover {
+            background-color: #45a049; /* Hover etkisi */
         }
     </style>
 </head>
 <body>
 
-<h1>Veiligheid en Beveiliging Basis oefeningentest</h1>
+<button class="toggle-button" id="toggleButton">Koyulaştır</button>
+
+<h1>Thema 12 Bouwkundige en Technische Hulpmiddelen Vragen</h1>
 
 <!-- Vragen sectie -->
 <div class="section" id="vragen">
+    <!-- (Buradaki tüm sorular ve açıklamalar yer alacak) -->
+
     <div class="question">
         <h3>1. Wat zijn de drie factoren die gelijktijdig aanwezig moeten zijn voor een verbrandingsproces?</h3>
         <button class="button" onclick="checkAnswer(1, 'A', this)">A) Brandbare stof, zuurstof, ontbrandingstemperatuur; door het monitoren van opslagruimten.</button>
@@ -146,7 +72,6 @@
         <button class="button" onclick="checkAnswer(3, 'D', this)">D) Medewerkers alleen ondersteunen; dit is alleen voor bedrijfsprestaties.</button>
         <div id="result3" class="result"></div>
     </div>
-
     <div class="question">
         <h3>4. Welk van de volgende hulpmiddelen valt onder technische hulpmiddelen en kan bijdragen aan brandpreventie?</h3>
         <button class="button" onclick="checkAnswer(4, 'A', this)">A) Brandblusser</button>
@@ -163,7 +88,6 @@
         <button class="button" onclick="checkAnswer(5, 'D', this)">D) Het controleren van het toegangsbeheer</button>
         <div id="result5" class="result"></div>
     </div>
-
     <div class="question">
         <h3>6. Welke instructie zijn beveiligers verplicht te volgen bij een brandmelding?</h3>
         <button class="button" onclick="checkAnswer(6, 'A', this)">A) De brand zelf blussen</button>
@@ -180,7 +104,6 @@
         <button class="button" onclick="checkAnswer(7, 'D', this)">D) Klanten alleen verlaten als het veilig is</button>
         <div id="result7" class="result"></div>
     </div>
-
     <div class="question">
         <h3>8. Wat moet je doen als je een storing opmerkt in een brandalarmen systeem?</h3>
         <button class="button" onclick="checkAnswer(8, 'A', this)">A) De storing negeren, omdat het geen probleem is</button>
@@ -197,7 +120,6 @@
         <button class="button" onclick="checkAnswer(9, 'D', this)">D) Pas als er een bevestiging is van de beveiligers</button>
         <div id="result9" class="result"></div>
     </div>
-
     <div class="question">
         <h3>10. Wat moet je als beveiliger doen in geval van agressief gedrag tijdens een evacuatie?</h3>
         <button class="button" onclick="checkAnswer(10, 'A', this)">A) Agressieve woorden teruggeven</button>
@@ -214,7 +136,6 @@
         <button class="button" onclick="checkAnswer(11, 'D', this)">D) Frustratie over toegangspunten</button>
         <div id="result11" class="result"></div>
     </div>
-
     <div class="question">
         <h3>12. Welke preventieve maatregel kan een organisatie nemen om brand te voorkomen?</h3>
         <button class="button" onclick="checkAnswer(12, 'A', this)">A) Brandjes negeren</button>
@@ -231,7 +152,6 @@
         <button class="button" onclick="checkAnswer(13, 'D', this)">D) De marketingafdeling versterken</button>
         <div id="result13" class="result"></div>
     </div>
-
     <div class="question">
         <h3>14. Wat moet je doen om klantgericht te handelen tijdens een beveiligingssituatie?</h3>
         <button class="button" onclick="checkAnswer(14, 'A', this)">A) Klanten negeren</button>
@@ -248,7 +168,6 @@
         <button class="button" onclick="checkAnswer(15, 'D', this)">D) Het leidt tot onnodige verwarring</button>
         <div id="result15" class="result"></div>
     </div>
-
     <div class="question">
         <h3>16. Hoe kan effectieve communicatie tussen beveiligers helpen bij brandpreventie?</h3>
         <button class="button" onclick="checkAnswer(16, 'A', this)">A) Het zorgt voor chaos</button>
@@ -265,7 +184,6 @@
         <button class="button" onclick="checkAnswer(17, 'D', this)">D) Neem niet deel aan verzoekconstruction</button>
         <div id="result17" class="result"></div>
     </div>
-
     <div class="question">
         <h3>18. Welke technologie kan worden ingezet voor branddetectie en -alarmen?</h3>
         <button class="button" onclick="checkAnswer(18, 'A', this)">A) Biometrische scanners</button>
@@ -282,7 +200,6 @@
         <button class="button" onclick="checkAnswer(19, 'D', this)">D) Door alarmen te negeren</button>
         <div id="result19" class="result"></div>
     </div>
-
     <div class="question">
         <h3>20. Waarom is het belangrijk om na een incident procedures te evalueren?</h3>
         <button class="button" onclick="checkAnswer(20, 'A', this)">A) Om rapporten in te vullen zonder doel</button>
@@ -291,7 +208,6 @@
         <button class="button" onclick="checkAnswer(20, 'D', this)">D) Om nieuwe medewerkers te trainen</button>
         <div id="result20" class="result"></div>
     </div>
-
     <div class="question">
         <h3>21. Welke stap is cruciaal voordat je een risicobeheerplan kunt implementeren?</h3>
         <button class="button" onclick="checkAnswer(21, 'A', this)">A) Het uitschrijven van handboeken</button>
@@ -300,7 +216,6 @@
         <button class="button" onclick="checkAnswer(21, 'D', this)">D) Het vaststellen van de werkdruk van medewerkers</button>
         <div id="result21" class="result"></div>
     </div>
-
     <div class="question">
         <h3>22. Wat is de rol van de brandweer bij openbare evenementen?</h3>
         <button class="button" onclick="checkAnswer(22, 'A', this)">A) Het toezicht houden op mensenmassa's</button>
@@ -317,7 +232,6 @@
         <button class="button" onclick="checkAnswer(23, 'D', this)">D) De verantwoordelijkheid van niemand</button>
         <div id="result23" class="result"></div>
     </div>
-
     <div class="question">
         <h3>24. Wat helpt om een beveiligingsbeleid te definiëren?</h3>
         <button class="button" onclick="checkAnswer(24, 'A', this)">A) Ongegronde vragen</button>
@@ -334,7 +248,6 @@
         <button class="button" onclick="checkAnswer(25, 'D', this)">D) Het omzeilen van risico's</button>
         <div id="result25" class="result"></div>
     </div>
-
     <div class="question">
         <h3>26. Wat is voornaamste taak van een persoonlijke beveiliger in risicovolle situaties?</h3>
         <button class="button" onclick="checkAnswer(26, 'A', this)">A) Gedrag van anderen observeren</button>
@@ -343,7 +256,6 @@
         <button class="button" onclick="checkAnswer(26, 'D', this)">D) Het reserveren van kamers</button>
         <div id="result26" class="result"></div>
     </div>
-
     <div class="question">
         <h3>27. Welke handeling wordt als een preventieve maatregel beschouwd?</h3>
         <button class="button" onclick="checkAnswer(27, 'A', this)">A) Het aanhouden van een verdachte</button>
@@ -352,7 +264,6 @@
         <button class="button" onclick="checkAnswer(27, 'D', this)">D) Het controleren van vuurhulpmiddelen</button>
         <div id="result27" class="result"></div>
     </div>
-
     <div class="question">
         <h3>28. Hoe moet men reageren bij een brandmelding in een drukke omgeving?</h3>
         <button class="button" onclick="checkAnswer(28, 'A', this)">A) Dichtbij de brand blijven</button>
@@ -361,7 +272,6 @@
         <button class="button" onclick="checkAnswer(28, 'D', this)">D) Wachten op de brandweer</button>
         <div id="result28" class="result"></div>
     </div>
-
     <div class="question">
         <h3>29. Wat is een kritische verantwoordelijkheid van beveiligers op grote evenementen?</h3>
         <button class="button" onclick="checkAnswer(29, 'A', this)">A) Eten en drinken verzorgen voor bezoekers</button>
@@ -370,7 +280,6 @@
         <button class="button" onclick="checkAnswer(29, 'D', this)">D) Klantenfeedback verzamelen</button>
         <div id="result29" class="result"></div>
     </div>
-
     <div class="question">
         <h3>30. Wat moet je voorkomen bij een noodsituatie?</h3>
         <button class="button" onclick="checkAnswer(30, 'A', this)">A) Snel handelen en afhandelen</button>
@@ -379,7 +288,6 @@
         <button class="button" onclick="checkAnswer(30, 'D', this)">D) De situatie negeren en wachten</button>
         <div id="result30" class="result"></div>
     </div>
-
     <div class="question">
         <h3>31. Hoe draagt een goede samenwerking bij aan brandpreventie?</h3>
         <button class="button" onclick="checkAnswer(31, 'A', this)">A) Het bespaart tijd</button>
@@ -388,7 +296,6 @@
         <button class="button" onclick="checkAnswer(31, 'D', this)">D) Het zorgt voor financiële repetitie</button>
         <div id="result31" class="result"></div>
     </div>
-
     <div class="question">
         <h3>32. Wat doet een beveiliger voor een effectieve voorbereiding op een cruciale situatie?</h3>
         <button class="button" onclick="checkAnswer(32, 'A', this)">A) Alleen plaats en tijd vermelden</button>
@@ -397,7 +304,6 @@
         <button class="button" onclick="checkAnswer(32, 'D', this)">D) Totale controle overdragen</button>
         <div id="result32" class="result"></div>
     </div>
-
     <div class="question">
         <h3>33. Wat is de eerste stap in brandveiligheidsplannen voor bedrijven?</h3>
         <button class="button" onclick="checkAnswer(33, 'A', this)">A) Afronding van het rapport</button>
@@ -406,7 +312,6 @@
         <button class="button" onclick="checkAnswer(33, 'D', this)">D) Het samenvoegen van teams</button>
         <div id="result33" class="result"></div>
     </div>
-
     <div class="question">
         <h3>34. Wat is een essentieel onderdeel van een alarmdetectiesysteem?</h3>
         <button class="button" onclick="checkAnswer(34, 'A', this)">A) De weergave van alarm</button>
@@ -415,7 +320,6 @@
         <button class="button" onclick="checkAnswer(34, 'D', this)">D) De verzendingscapaciteit van gegevens</button>
         <div id="result34" class="result"></div>
     </div>
-
     <div class="question">
         <h3>35. Wat is een van de basisprincipes van schadepreventie in organisaties?</h3>
         <button class="button" onclick="checkAnswer(35, 'A', this)">A) Eenduidige voorwaarden en protocollen</button>
@@ -424,7 +328,6 @@
         <button class="button" onclick="checkAnswer(35, 'D', this)">D) Het verkennen van financiële vooruitzichten</button>
         <div id="result35" class="result"></div>
     </div>
-
     <div class="question">
         <h3>36. Hoe kan conflictoplossing verzekerd worden in teams?</h3>
         <button class="button" onclick="checkAnswer(36, 'A', this)">A) Door de verantwoordelijkheid op anderen over te nemen</button>
@@ -433,7 +336,6 @@
         <button class="button" onclick="checkAnswer(36, 'D', this)">D) Door onzelfzuchtige bedoelingen</button>
         <div id="result36" class="result"></div>
     </div>
-
     <div class="question">
         <h3>37. Wat moet een beveiliger doen bij het vaststellen van potentiële overtredingen?</h3>
         <button class="button" onclick="checkAnswer(37, 'A', this)">A) Niets zeggen en de situatie negeren</button>
@@ -442,7 +344,6 @@
         <button class="button" onclick="checkAnswer(37, 'D', this)">D) Intern verantwoorden</button>
         <div id="result37" class="result"></div>
     </div>
-
     <div class="question">
         <h3>38. Wanneer is het nodig om een persoonlijke account te sluiten?</h3>
         <button class="button" onclick="checkAnswer(38, 'A', this)">A) Na elke beslissing</button>
@@ -451,7 +352,6 @@
         <button class="button" onclick="checkAnswer(38, 'D', this)">D) Gedurende wederzijdse communicatie</button>
         <div id="result38" class="result"></div>
     </div>
-
     <div class="question">
         <h3>39. Wat is de primaire functie van specifieke protocols in de beveiliging?</h3>
         <button class="button" onclick="checkAnswer(39, 'A', this)">A) Kreten van persoonlijke bijdrage</button>
@@ -460,7 +360,6 @@
         <button class="button" onclick="checkAnswer(39, 'D', this)">D) Ongebruikte hoofdstukken versnellen</button>
         <div id="result39" class="result"></div>
     </div>
-
     <div class="question">
         <h3>40. Wat is een criminele achtervolging?</h3>
         <button class="button" onclick="checkAnswer(40, 'A', this)">A) Het beperken van onmiddellijke respons</button>
@@ -469,7 +368,6 @@
         <button class="button" onclick="checkAnswer(40, 'D', this)">D) Een bereidwillige beweging richting buitenlandse wet</button>
         <div id="result40" class="result"></div>
     </div>
-
     <div class="question">
         <h3>41. Wat is de conclusie van operationele planning?</h3>
         <button class="button" onclick="checkAnswer(41, 'A', this)">A) Activeren van gedragsmodel</button>
@@ -478,7 +376,6 @@
         <button class="button" onclick="checkAnswer(41, 'D', this)">D) Structuur aan verwarring geven</button>
         <div id="result41" class="result"></div>
     </div>
-
     <div class="question">
         <h3>42. Wat is de opmerkelijke rol van management bij beveiliging?</h3>
         <button class="button" onclick="checkAnswer(42, 'A', this)">A) Beheersing van ongewenste situaties</button>
@@ -487,7 +384,6 @@
         <button class="button" onclick="checkAnswer(42, 'D', this)">D) Het vereisen van eindeloze deelname</button>
         <div id="result42" class="result"></div>
     </div>
-
     <div class="question">
         <h3>43. Waarom is veiligheidsbeleid zo belangrijk voor effectiviteit?</h3>
         <button class="button" onclick="checkAnswer(43, 'A', this)">A) Versterkt de prestatie in leiding</button>
@@ -496,7 +392,6 @@
         <button class="button" onclick="checkAnswer(43, 'D', this)">D) Verbetert externe netwerken en systemen</button>
         <div id="result43" class="result"></div>
     </div>
-
     <div class="question">
         <h3>44. Wat is een situatie waar différentiële beveiliging van toepassing is?</h3>
         <button class="button" onclick="checkAnswer(44, 'A', this)">A) Afdwingen van straffen</button>
@@ -505,7 +400,6 @@
         <button class="button" onclick="checkAnswer(44, 'D', this)">D) Het afhandelen van persoonlijke misverstanden</button>
         <div id="result44" class="result"></div>
     </div>
-
     <div class="question">
         <h3>45. Wat is een belangrijke functie van virtuele beveiliging?</h3>
         <button class="button" onclick="checkAnswer(45, 'A', this)">A) Alleen het monitoren van persoonlijke netwerken</button>
@@ -514,7 +408,6 @@
         <button class="button" onclick="checkAnswer(45, 'D', this)">D) Het ontwikkelen van software</button>
         <div id="result45" class="result"></div>
     </div>
-
     <div class="question">
         <h3>46. Wat is het doel van digitale beveiliging?</h3>
         <button class="button" onclick="checkAnswer(46, 'A', this)">A) Actief gebruikmaken van informatie</button>
@@ -523,7 +416,6 @@
         <button class="button" onclick="checkAnswer(46, 'D', this)">D) Het alterneren van informatieve participaties</button>
         <div id="result46" class="result"></div>
     </div>
-
     <div class="question">
         <h3>47. Wat is essentieel voor effectief toegangsmanagement?</h3>
         <button class="button" onclick="checkAnswer(47, 'A', this)">A) Het alarmeren van bezoekers</button>
@@ -532,7 +424,6 @@
         <button class="button" onclick="checkAnswer(47, 'D', this)">D) Directe toestemming voor toegang</button>
         <div id="result47" class="result"></div>
     </div>
-
     <div class="question">
         <h3>48. Hoe zou je proactief beveiligen binnen een organisatie?</h3>
         <button class="button" onclick="checkAnswer(48, 'A', this)">A) Voorkeurs werkzaamheden op activatie-stories</button>
@@ -541,7 +432,6 @@
         <button class="button" onclick="checkAnswer(48, 'D', this)">D) Wachtwoorden periodiek vernieuwen zonder pijnesteningen</button>
         <div id="result48" class="result"></div>
     </div>
-
     <div class="question">
         <h3>49. Wat moet je doen als je een bedreiging tegenkomt?</h3>
         <button class="button" onclick="checkAnswer(49, 'A', this)">A) Direct personen negeren en weggaan</button>
@@ -550,7 +440,6 @@
         <button class="button" onclick="checkAnswer(49, 'D', this)">D) Volledig stoppen met participatie</button>
         <div id="result49" class="result"></div>
     </div>
-
     <div class="question">
         <h3>50. Wat voelt men als basisprincipes voor adequaat antwoord?</h3>
         <button class="button" onclick="checkAnswer(50, 'A', this)">A) Aantrekkelijkheid definieert goed gedrag</button>
@@ -583,108 +472,57 @@ const questionCount = Object.keys(answers).length; // Toplam soru sayısı
 
 function getExplanation(questionNumber) {
     switch (questionNumber) {
-        case 1:
-            return "De juiste drie factoren voor verbranding zijn brandbare stof, zuurstof en ontbrandingstemperatuur.";
-        case 2:
-            return "De primaire verantwoordelijkheid van beveiligers is het direct evacueren van het personeel om hun veiligheid te waarborgen.";
-        case 3:
-            return "Manbeveiliging verwijst naar menselijke waakzaamheid, wat cruciaal is voor het tijdig detecteren van brand.";
-        case 4:
-            return "Brandblussers zijn technische hulpmiddelen die effectief helpen bij brandpreventie.";
-        case 5:
-            return "Bewegingsmelders detecteren beweging die kan wijzen op brandgevaar.";
-        case 6:
-            return "Het is verplicht om bij een brandmelding de alarmcentrale te contacteren voor hulp.";
-        case 7:
-            return "Klantgericht handelen betekent klanten informeren over veilig evacueren tijdens een brand.";
-        case 8:
-            return "Bij een storing in een brandalarmsysteem is het essentieel om deze te rapporteren.";
-        case 9:
-            return "De gemiddeld responstijd voor een alarmcentrale is onmiddellijk, wat essentieel is tijdens brandmeldingen.";
-        case 10:
-            return "Bij agressief gedrag tijdens een evacuatie is het belangrijk om jezelf en anderen in veiligheid te brengen.";
-        case 11:
-            return "Onzekerheid of paniek is vaak een oorzaak van agressief gedrag bij bezoekers tijdens een brand.";
-        case 12:
-            return "Onderhoud van brandblussers is een belangrijke preventieve maatregel tegen brand.";
-        case 13:
-            return "Duidelijke protocollen voor evacuatie zijn essentieel voor een effectief beveiligingsbeleid.";
-        case 14:
-            return "Bij een beveiligingssituatie is het belangrijk om te luisteren naar zorgen van klanten.";
-        case 15:
-            return "Een vriendelijke houding helpt bij het verzamelen van informatie en verbetert de communicatie.";
-        case 16:
-            return "Effectieve communicatie tussen beveiligers zorgt ervoor dat iedereen op de hoogte is van hun verantwoordelijkheden.";
-        case 17:
-            return "Bij een verzoek van een collega moet je de zorgen bevestigen en adequaat reageren.";
-        case 18:
-            return "Rookmelders en temperatuurgevoelige sensoren zijn essentieel voor branddetectie.";
-        case 19:
-            return "Drones kunnen helpen met een veiligheidsinspectie op grote evenementen voor brandpreventie.";
-        case 20:
-            return "Evalueren van procedures na een incident helpt bij het leren van fouten en het verbeteren van de veiligheid.";
-        case 21:
-            return "Het uitvoeren van een risicoanalyse is cruciaal voordat een risicobeheerplan kan worden geïmplementeerd.";
-        case 22:
-            return "De brandweer zorgt voor brandpreventie en reageert snel op incidenten tijdens evenementen.";
-        case 23:
-            return "Regelmatige branddrills zijn essentieel voor personeel en bezoekers om goed te reageren op brand.";
-        case 24:
-            return "Een duidelijke risicoanalyse helpt om een effectief beveiligingsbeleid te definiëren.";
-        case 25:
-            return "Trainingen verbeteren de teamwork vaardigheden en responscapaciteit van medewerkers.";
-        case 26:
-            return "De belangrijkste taak van een persoonlijke beveiliger is om de persoon te beschermen.";
-        case 27:
-            return "Het organiseren van veiligheidsprotocollen is een preventieve maatregel die risico's vermindert.";
-        case 28:
-            return "In drukke omgevingen is structuur belangrijk bij evacuatie om chaos te voorkomen.";
-        case 29:
-            return "Bij grote evenementen is toezicht houden en incidenten monitoren cruciaal voor de veiligheid.";
-        case 30:
-            return "Slechte communicatie kan chaos creëren in noodsituaties en moet worden vermeden.";
-        case 31:
-            return "Een goede samenwerking bevordert kennisuitwisseling en effectieve brandpreventie."
-        case 32:
-            return "Beveiligers moeten vertrouwd raken met procedures om adequaat te reageren in crises.";
-        case 33:
-            return "De eerste stap in brandveiligheidsplannen is het uitvoeren van een brandrisicobeoordeling.";
-        case 34:
-            return "Classificering van noodsituaties is belangrijk voor het alarmdetectiesysteem.";
-        case 35:
-            return "Eenduidige voorwaarden en protocollen helpen bij schadepreventie.";
-        case 36:
-            return "Open communicatielijnen zijn essentieel voor effectieve conflictoplossing.";
-        case 37:
-            return "Rapporteren van potentiële overtredingen is cruciaal voor veiligheid."
-        case 38:
-            return "Persoonlijke accounts moeten worden gesloten bij onbevoegd gebruik van wachtwoorden.";
-        case 39:
-            return "Specifieke protocollen in de beveiliging zorgen voor duidelijkheid en veiligheid.";
-        case 40:
-            return "Een criminele achtervolging is gericht op het reduceren van schade in gevaarlijke situaties.";
-        case 41:
-            return "Operationele planning zorgt voor structuur en vermindert verwarring.";
-        case 42:
-            return "Management is verantwoordelijk voor het beheersen van ongewenste situaties en veiligheid.";
-        case 43:
-            return "Een goed veiligheidsbeleid helpt risico's te identificeren en te beheersen.";
-        case 44:
-            return "Differentiële beveiliging is belangrijk voor het afhandelen van persoonlijke misverstanden.";
-        case 45:
-            return "Virtuele beveiliging identificeert en reageert op dreigingen in netwerken.";
-        case 46:
-            return "Digitale beveiliging voorkomt ongewenste toegang tot gegevens en waarborgt integriteit.";
-        case 47:
-            return "Effectief toegangsmanagement vereist identificatie en classificatie van bezoekers.";
-        case 48:
-            return "Proactieve beveiliging omvat inspecties en onderhoudsprogramma's.";
-        case 49:
-            return "Het rapporteren van dreigingen aan teamleiders is cruciaal voor veiligheid.";
-        case 50:
-            return "Nauwe communicatielijnen zijn essentieel voor een adequaat antwoord."
-        default:
-            return "Geen verklaring beschikbaar.";
+        case 1: return "De juiste drie factoren voor verbranding zijn brandbare stof, zuurstof en ontbrandingstemperatuur.";
+        case 2: return "De primaire verantwoordelijkheid van beveiligers is het direct evacueren van het personeel om hun veiligheid te waarborgen.";
+        case 3: return "Manbeveiliging verwijst naar menselijke waakzaamheid, wat cruciaal is voor het tijdig detecteren van brand.";
+        case 4: return "Brandblussers zijn technische hulpmiddelen die effectief helpen bij brandpreventie.";
+        case 5: return "Bewegingsmelders detecteren beweging die kan wijzen op brandgevaar.";
+        case 6: return "Het is verplicht om bij een brandmelding de alarmcentrale te contacteren voor hulp.";
+        case 7: return "Klantgericht handelen betekent klanten informeren over veilig evacueren tijdens een brand.";
+        case 8: return "Bij een storing in een brandalarmsysteem is het essentieel om deze te rapporteren.";
+        case 9: return "De gemiddeld responstijd voor een alarmcentrale is onmiddellijk, wat essentieel is tijdens brandmeldingen.";
+        case 10: return "Bij agressief gedrag tijdens een evacuatie is het belangrijk om jezelf en anderen in veiligheid te brengen.";
+        case 11: return "Onzekerheid of paniek is vaak een oorzaak van agressief gedrag bij bezoekers tijdens een brand.";
+        case 12: return "Onderhoud van brandblussers is een belangrijke preventieve maatregel tegen brand.";
+        case 13: return "Duidelijke protocollen voor evacuatie zijn essentieel voor een effectief beveiligingsbeleid.";
+        case 14: return "Bij een beveiligingssituatie is het belangrijk om te luisteren naar zorgen van klanten.";
+        case 15: return "Een vriendelijke houding helpt bij het verzamelen van informatie en verbetert de communicatie.";
+        case 16: return "Effectieve communicatie tussen beveiligers zorgt ervoor dat iedereen op de hoogte is van hun verantwoordelijkheden.";
+        case 17: return "Bij een verzoek van een collega moet je de zorgen bevestigen en adequaat reageren.";
+        case 18: return "Rookmelders en temperatuurgevoelige sensoren zijn essentieel voor branddetectie.";
+        case 19: return "Drones kunnen helpen met een veiligheidsinspectie op grote evenementen voor brandpreventie.";
+        case 20: return "Evalueren van procedures na een incident helpt bij het leren van fouten en het verbeteren van de veiligheid.";
+        case 21: return "Het uitvoeren van een risicoanalyse is cruciaal voordat een risicobeheerplan kan worden geïmplementeerd.";
+        case 22: return "De brandweer zorgt voor brandpreventie en reageert snel op incidenten tijdens evenementen.";
+        case 23: return "Regelmatige branddrills zijn essentieel voor personeel en bezoekers om goed te reageren op brand.";
+        case 24: return "Een duidelijke risicoanalyse helpt om een effectief beveiligingsbeleid te definiëren.";
+        case 25: return "Trainingen verbeteren de teamwork vaardigheden en responscapaciteit van medewerkers.";
+        case 26: return "De belangrijkste taak van een persoonlijke beveiliger is om de persoon te beschermen.";
+        case 27: return "Het organiseren van veiligheidsprotocollen is een preventieve maatregel die risico's vermindert.";
+        case 28: return "In drukke omgevingen is structuur belangrijk bij evacuatie om chaos te voorkomen.";
+        case 29: return "Bij grote evenementen is toezicht houden en incidenten monitoren cruciaal voor de veiligheid.";
+        case 30: return "Slechte communicatie kan chaos creëren in noodsituaties en moet worden vermeden.";
+        case 31: return "Een goede samenwerking bevordert kennisuitwisseling en effectieve brandpreventie.";
+        case 32: return "Beveiligers moeten vertrouwd raken met procedures om adequaat te reageren in crises.";
+        case 33: return "De eerste stap in brandveiligheidsplannen is het uitvoeren van een brandrisicobeoordeling.";
+        case 34: return "Classificering van noodsituaties is belangrijk voor het alarmdetectiesysteem.";
+        case 35: return "Eenduidige voorwaarden en protocollen helpen bij schadepreventie.";
+        case 36: return "Open communicatielijnen zijn essentieel voor effectieve conflictoplossing.";
+        case 37: return "Rapporteren van potentiële overtredingen is cruciaal voor veiligheid.";
+        case 38: return "Persoonlijke accounts moeten worden gesloten bij onbevoegd gebruik van wachtwoorden.";
+        case 39: return "Specifieke protocollen in de beveiliging zorgen voor duidelijkheid en veiligheid.";
+        case 40: return "Een criminele achtervolging is gericht op het reduceren van schade in gevaarlijke situaties.";
+        case 41: return "Operationele planning zorgt voor structuur en vermindert verwarring.";
+        case 42: return "Management is verantwoordelijk voor het beheersen van ongewenste situaties en veiligheid.";
+        case 43: return "Een goed veiligheidsbeleid helpt risico's te identificeren en te beheersen.";
+        case 44: return "Differentiële beveiliging is belangrijk voor het afhandelen van persoonlijke misverstanden.";
+        case 45: return "Virtuele beveiliging identificeert en reageert op dreigingen in netwerken.";
+        case 46: return "Digitale beveiliging voorkomt ongewenste toegang tot gegevens en waarborgt integriteit.";
+        case 47: return "Effectief toegangsmanagement vereist identificatie en classificatie van bezoekers.";
+        case 48: return "Proactieve beveiliging omvat inspecties en onderhoudsprogramma's.";
+        case 49: return "Het rapporteren van dreigingen aan teamleiders is cruciaal voor veiligheid.";
+        case 50: return "Nauwe communicatielijnen zijn essentieel voor een adequaat antwoord.";
+        default: return "Geen verklaring beschikbaar.";
     }
 }
 
@@ -723,7 +561,10 @@ function displayScore() {
     scoreDiv.innerHTML = `<strong>Juiste antwoorden:</strong> ${correctCount}, <strong>Foute antwoorden:</strong> ${wrongCount}, <strong>Score:</strong> ${scorePercentage.toFixed(1)}/10`;
 }
 
+// Koyulaştırma fonksiyonu
+document.getElementById("toggleButton").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode"); // Koyulaştırma sınıfını ekle/çıkart
+});
 </script>
-
 </body>
 </html>
