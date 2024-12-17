@@ -49,7 +49,7 @@ body {
 
 .button { 
     display: block; 
-    background-color: #4CAF50; 
+    background-color: #4CAF50; /* Normal modda yeşil arka plan */
     color: white; 
     padding: 10px 15px; 
     margin: 5px 0; 
@@ -63,9 +63,18 @@ body {
 }
 
 .button:hover { 
-    background-color: #45a049; 
+    background-color: #45a049; /* Hover efekti */
     transform: scale(1.1); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.dark-mode .button { 
+    background-color: #666; /* Koyu modda koyu gri arka plan */
+    color: #f4f4f4; /* Koyu modda yazı rengi */ 
+}
+
+.dark-mode .button:hover { 
+    background-color: #555; /* Koyu modda hover efekti */
 }
 
 .result { 
