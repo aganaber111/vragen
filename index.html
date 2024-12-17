@@ -31,27 +31,23 @@
         }
 
         .button {
-            display: inline-block;
+            display: block;  /* Block level, alt alta yerleştirir */
             background-color: #4CAF50;
             color: white;
             padding: 10px 15px;
-            margin: 5px 0;
+            margin: 5px 0;  /* Dikey boşluk */
             border: none;
             border-radius: 5px;
             text-align: center;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Geçiş animasyonu */
             text-decoration: none;
             font-size: 16px;
         }
 
         .button:hover {
             background-color: #45a049;
-        }
-
-        .button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+            transform: scale(1.05); /* Hover üzerinde büyütme */
         }
 
         .result {
