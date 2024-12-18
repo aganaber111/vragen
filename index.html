@@ -4,30 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veiligheid en Beveiliging Basis oefentoets</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyasını ekleyin -->
+    <link rel="stylesheet" href="styles.css"> 
     <style>
         /* CSS stillerini burada ekleyebilirsiniz */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4; /* Normal modda arka plan rengi */
-            color: #333; /* Normal modda yazı rengi */
+            background-color: #f4f4f4; 
+            color: #333; 
             padding: 20px;
-            transition: background-color 0.5s, color 0.5s; /* Geçiş efekti */
+            transition: background-color 0.5s, color 0.5s; 
         }
 
-        /* Koyu mod */
         .dark-mode {
-            background-color: #222; /* Koyu modda arka plan rengi */
-            color: #f4f4f4; /* Koyu modda yazı rengi */
+            background-color: #222; 
+            color: #f4f4f4; 
         }
 
-        /* Koyu modu açma/kapama butonu */
         .toggle-button {
-            position: absolute; /* Sağ üst köşeye konumlandırma */
+            position: absolute; 
             top: 20px;
             right: 20px;
-            background-color: #4CAF50; /* Yeşil arka plan */
+            background-color: #4CAF50; 
             color: white;
             border: none;
             padding: 10px 15px;
@@ -37,38 +35,34 @@
         }
 
         .toggle-button:hover {
-            background-color: #45a049; /* Hover efekti */
+            background-color: #45a049; 
         }
 
-        /* Soru alanı */
         .section {
             margin-bottom: 30px; 
         }
 
         .selected {
-            background-color: #357a38; /* Seçili buton için koyu yeşil arka plan */
-            color: white; /* Metin rengi beyaz */
+            background-color: #357a38; 
+            color: white; 
         }
 
         .question { 
-            background: white; /* Normal modda beyaz arka plan */
+            background: white; 
             border-radius: 8px; 
             padding: 20px; 
             margin: 10px 0; 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-            transition: background-color 0.5s; /* Koyu mod için geçiş efekti */
         }
 
-        /* Koyu modda soru alanı */
         .dark-mode .question {
-            background-color: #444; /* Koyu modda koyulaşma */
-            color: #f4f4f4; /* Koyu modda yazı rengi */
+            background-color: #444; 
+            color: #f4f4f4; 
         }
 
-        /* Butonlar */
         .button { 
             display: block; 
-            background-color: #4CAF50; /* Normal modda yeşil arka plan */
+            background-color: #4CAF50; 
             color: white; 
             padding: 10px 15px; 
             margin: 5px 0; 
@@ -77,27 +71,24 @@
             text-align: center; 
             cursor: pointer; 
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
-            text-decoration: none; 
             font-size: 16px; 
         }
 
         .button:hover { 
-            background-color: #45a049; /* Hover efekti */
+            background-color: #45a049; 
             transform: scale(1.1); 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
         }
 
-        /* Koyu modda butonlar */
         .dark-mode .button { 
-            background-color: #666; /* Koyu modda koyu gri arka plan */
-            color: #f4f4f4; /* Koyu modda yazı rengi */ 
+            background-color: #666; 
+            color: #f4f4f4; 
         }
 
         .dark-mode .button:hover { 
-            background-color: #555; /* Koyu modda hover efekti */
+            background-color: #555; 
         }
 
-        /* Sonuç alanı */
         .result { 
             margin-top: 10px; 
             font-weight: bold; 
@@ -110,7 +101,6 @@
             border: 1px solid #c3e6cb; 
             border-radius: 5px; 
             margin-bottom: 10px; 
-            animation: fadeIn 0.5s; 
         }
 
         .false-result { 
@@ -120,19 +110,6 @@
             border: 1px solid #f5c6cb; 
             border-radius: 5px; 
             margin-bottom: 10px; 
-            animation: shake 0.5s; 
-        }
-
-        /* Animasyonlar */
-        @keyframes fadeIn { 
-            from { opacity: 0; } 
-            to { opacity: 1; } 
-        }
-
-        @keyframes shake { 
-            0%, 100% { transform: translateX(0); } 
-            25% { transform: translateX(-10px); } 
-            50% { transform: translateX(10px); } 
         }
     </style>
 </head>
