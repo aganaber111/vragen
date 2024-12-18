@@ -37,6 +37,11 @@ body {
     margin-bottom: 30px; 
 }
 
+.selected {
+    background-color: #357a38; /* Seçili buton için koyu yeşil arka plan */
+    color: white; /* Metin rengi beyaz */
+}
+
 .question { 
     background: white; /* Normal modda beyaz arka plan */
     border-radius: 8px; 
