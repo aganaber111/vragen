@@ -624,6 +624,7 @@ function getExplanation(questionNumber) {
     }
 }
 
+// Cevabı kontrol et
 function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
     const resultDiv = document.getElementById(`result${questionNumber}`);
 
@@ -639,14 +640,20 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
     // Cevabı kontrol et
     const correctAnswer = answers[questionNumber];
 
-    if (selectedAnswer === '') {
-        resultDiv.innerHTML = ''; // Boş bırakılan cevap
-    } else if (selectedAnswer === correctAnswer) {
+    if (selectedAnswer === correctAnswer) {
         resultDiv.innerHTML = `<div class="true-result">Correct! ${getExplanation(questionNumber)}</div>`;
-        correctCount++; // Doğru sayısını artır
+        correctCount++;
     } else {
         resultDiv.innerHTML = `<div class="false-result">Fout! Het juiste antwoord is ${correctAnswer}. <br> Verklaring: ${getExplanation(questionNumber)}</div>`;
     }
+
+    // Butonları tekrar aktif hale getir (isteğe bağlı)
+    setTimeout(() => {
+        buttons.forEach(button => {
+            button.disabled = false; // Butonları yeniden etkinleştir
+        });
+    }, 3000); // 3 saniye sonra etkinleştir
+}
 
     // Skoru hesapla ve göster
     displayScore();
