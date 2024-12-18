@@ -553,18 +553,3 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
     // Skoru hesapla ve göster
     displayScore();
 }
-
-function displayScore() {
-    const scoreDiv = document.getElementById("score");
-    const wrongCount = questionCount - correctCount; // Yanlış cevap sayısı
-    const scorePercentage = (correctCount / questionCount) * 10; // Skor
-    scoreDiv.innerHTML = `<strong>Juiste antwoorden:</strong> ${correctCount}, <strong>Foute antwoorden:</strong> ${wrongCount}, <strong>Score:</strong> ${scorePercentage.toFixed(1)}/10`;
-}
-
-// Koyulaştırma fonksiyonu
-document.getElementById("toggleButton").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode"); // Koyulaştırma sınıfını ekle/çıkart
-});
-</script>
-</body>
-</html>
