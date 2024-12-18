@@ -34,16 +34,34 @@
         }
 
         .toggle-button:hover {
-            background-color: #45a049; /* Hover etkisi */
+            background-color: #45a049; /* Hover efekti */
         }
-   <style>
-        /* CSS örneği burada olacak, aynı zamanda yukarıda belirtildiği gibi .selected sınıfı olacak şekilde */
+
+        /* Seçili buton için stil */
         .selected {
             background-color: #357a38; /* Seçili buton için koyu yeşil arka plan */
             color: white; /* Metin rengi beyaz */
         }
-        /* Diğer stiller (body, .button vb.) burada yer alır */
-        /* ... */
+
+        /* Butonlar - normal */
+        .button { 
+            display: block; 
+            background-color: #4CAF50; /* Normal modda yeşil arka plan */
+            color: white; 
+            padding: 10px 15px; 
+            margin: 5px 0; 
+            border: none; 
+            border-radius: 5px; 
+            text-align: center; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
+            text-decoration: none; 
+            font-size: 16px; 
+        }
+
+        .button:hover { 
+            background-color: #45a049; /* Hover efekti */
+        }
     </style>
 </head>
 <body>
