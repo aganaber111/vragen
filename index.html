@@ -624,7 +624,10 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
         resultDiv.innerHTML = `<div class="false-result">Fout! Het juiste antwoord is ${correctAnswer}. <br> Verklaring: ${getExplanation(questionNumber)}</div>`;
     }
 
-    // Butonları tekrar aktif hale getir (isteğe bağlı)
+    // Skoru göster
+    displayScore();
+
+    // Butonları tekrar aktif hale getir
     setTimeout(() => {
         buttons.forEach(button => {
             button.disabled = false; // Butonları yeniden etkinleştir
@@ -632,6 +635,11 @@ function checkAnswer(questionNumber, selectedAnswer, clickedButton) {
     }, 3000); // 3 saniye sonra etkinleştir
 }
 
-    // Skoru hesapla ve göster
-    displayScore();
+// Skoru hesapla ve göster
+function displayScore() {
+    const scoreDiv = document.getElementById('score');
+    scoreDiv.innerHTML = `Je score is ${correctCount} van de ${questionCount} vragen.`;
 }
+</script>
+</body>
+</html>
