@@ -5,7 +5,21 @@ body {
     background-color: #f4f4f4; /* Normal modda arka plan rengi */
     color: #333; /* Normal modda yazı rengi */
     padding: 20px;
-    transition: background-color 0.5s, color 0.5s; /* Geçiş efekti */
+    transition: background-color 0.5s ease, color 0.5s ease; /* Geçiş efekti */
+    opacity: 0; /* Sayfa başlangıçta görünmez */
+}
+
+.fade-in {
+    animation: fadeIn 1s forwards; /* Fade in animasyonu */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Koyu mod */
@@ -32,99 +46,72 @@ body {
     background-color: #45a049; /* Hover efekti */
 }
 
+/* Butonlar */
+.button {
+    display: block;
+    background-color: #4CAF50; /* Normal modda yeşil arka plan */
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    background-color: #45a049; /* Hover efekti */
+    transform: scale(1.05);
+}
+
+/* Bounce animasyonu */
+.bounce {
+    animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
 /* Soru alanı */
-.section {
-    margin-bottom: 30px; 
-}
-
-/* Seçilen buton stili */
-.selected {
-    background-color: #357a38; /* Seçili buton için koyu yeşil arka plan */
-    color: white; /* Metin rengi beyaz */
-}
-
-/* Soru kartı stili */
-.question { 
+.question {
     background: white; /* Normal modda beyaz arka plan */
-    border-radius: 8px; 
-    padding: 20px; 
-    margin: 10px 0; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    transition: background-color 0.5s; /* Koyu mod için geçiş efekti */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Koyu modda soru alanı */
 .dark-mode .question {
     background-color: #444; /* Koyu modda koyulaşma */
-    color: #f4f4f4; /* Koyu modda yazı rengi */
-}
-
-/* Butonlar */
-.button { 
-    display: block; 
-    background-color: #4CAF50; /* Normal modda yeşil arka plan */
-    color: white; 
-    padding: 10px 15px; 
-    margin: 5px 0; 
-    border: none; 
-    border-radius: 5px; 
-    text-align: center; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; 
-    text-decoration: none; 
-    font-size: 16px; 
-}
-
-.button:hover { 
-    background-color: #45a049; /* Hover efekti */
-    transform: scale(1.1); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-}
-
-/* Koyu modda butonlar */
-.dark-mode .button { 
-    background-color: #666; /* Koyu modda koyu gri arka plan */
-    color: #f4f4f4; /* Koyu modda yazı rengi */ 
-}
-
-.dark-mode .button:hover { 
-    background-color: #555; /* Koyu modda hover efekti */
 }
 
 /* Sonuç alanı */
-.result { 
-    margin-top: 10px; 
-    font-weight: bold; 
+.result {
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-.true-result { 
-    background-color: #d4edda; 
-    color: #155724; 
-    padding: 10px; 
-    border: 1px solid #c3e6cb; 
-    border-radius: 5px; 
-    margin-bottom: 10px; 
-    animation: fadeIn 0.5s; 
+.true-result {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
 }
 
-.false-result { 
-    background-color: #f8d7da; 
-    color: #721c24; 
-    padding: 10px; 
-    border: 1px solid #f5c6cb; 
-    border-radius: 5px; 
-    margin-bottom: 10px; 
-    animation: shake 0.5s; 
-}
-
-/* Animasyonlar */
-@keyframes fadeIn { 
-    from { opacity: 0; } 
-    to { opacity: 1; } 
-}
-
-@keyframes shake { 
-    0%, 100% { transform: translateX(0); } 
-    25% { transform: translateX(-10px); } 
-    50% { transform: translateX(10px); } 
-}
+.false-result {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
