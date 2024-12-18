@@ -37,11 +37,13 @@ body {
     margin-bottom: 30px; 
 }
 
+/* Seçilen buton stili */
 .selected {
     background-color: #357a38; /* Seçili buton için koyu yeşil arka plan */
     color: white; /* Metin rengi beyaz */
 }
 
+/* Soru kartı stili */
 .question { 
     background: white; /* Normal modda beyaz arka plan */
     border-radius: 8px; 
